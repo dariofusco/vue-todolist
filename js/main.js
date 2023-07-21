@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
+            idCounter: 1,
             newItem: {
                 id: "",
                 text: "",
@@ -15,9 +16,13 @@ const app = Vue.createApp({
     },
     methods: {
         addItem() {
-            const itemClone = {...this.newItem}
+            const itemClone = {...this.newItem, id: ++this.idCounter}
             this.toDoList.push(itemClone)
-        }
+        },
+        deleteItem(itemId) {
+            let itemToDelete = this.toDoList.findIndex((item) => item.id === itemId);
+            this.toDoList.splice(itemToDelete, 1);
+        },
     }
 });
 

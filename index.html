@@ -31,8 +31,8 @@
                 <div class="col">
                     <ul class="list-group" v-for="item in toDoList">
                         <li class="list-group-item" :class="{'text-decoration-line-through': (item.done === true)}">
-                            {{item.text}}
-                            <button type="button" class="btn btn-danger" v-for="item in toDoList">X</button>
+                            {{item.id}} - {{item.text}}
+                            <button type="button" class="btn btn-danger" @click="deleteItem(item.id)">X</button>
                         </li>
                     </ul>
                 </div>
