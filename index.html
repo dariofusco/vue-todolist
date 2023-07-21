@@ -17,24 +17,32 @@
 <body>
 
     <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default" v-model="newItem.text">
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-primary" @click="addItem">+</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <ul class="list-group" v-for="item in toDoList">
-                        <li class="list-group-item" :class="{'text-decoration-line-through': (item.done === true)}">
-                            {{item.id}} - {{item.text}}
-                            <button type="button" class="btn btn-danger" @click="deleteItem(item.id)">X</button>
-                        </li>
-                    </ul>
+        <div class="container mt-3">
+            <div class="card mt-3 bg-light">
+                <div class="card-body">
+                    <h1 class="text-center">TODO List</h1>
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Cosa devi fare?"
+                                    aria-label="Recipient's username" aria-describedby="button-addon2"
+                                    v-model="newItem.text">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                                    @click="addItem">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 m-auto">
+                            <ul class="list-group" v-for="item in toDoList">
+                                <li class="list-group-item"
+                                    :class="{'text-decoration-line-through': (item.done === true)}">
+                                    {{item.id}} - {{item.text}}
+                                    <button type="button" class="btn btn-danger" @click="deleteItem(item.id)">X</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
