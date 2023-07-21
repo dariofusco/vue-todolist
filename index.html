@@ -17,10 +17,27 @@
 <body>
 
     <div id="app">
-        <ul class="list-group" v-for="item in toDoList">
-            <li class="list-group-item" :class="{'text-decoration-line-through': (item.done === true)}">{{item.text}}
-            </li>
-        </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default" v-model="newItem.text">
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary" @click="addItem">+</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <ul class="list-group" v-for="item in toDoList">
+                        <li class="list-group-item" :class="{'text-decoration-line-through': (item.done === true)}">
+                            {{item.text}}
+                            <button type="button" class="btn btn-danger" v-for="item in toDoList">X</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/main.js"></script>
